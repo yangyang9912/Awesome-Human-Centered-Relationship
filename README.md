@@ -19,11 +19,8 @@
 <p>
   <a href="#-overview">Overview</a> •
   <a href="#-at-a-glance">At a Glance</a> •
-  <a href="#-why-this-project">Why</a> •
-  <a href="#-how-to-read-this-repository">How to Read</a> •
   <a href="#-taxonomy">Taxonomy</a> •
   <a href="#-benchmarks">Benchmarks</a> •
-  <a href="#-evaluation">Evaluation</a> •
   <a href="#-roadmap">Roadmap</a>
 </p>
 
@@ -59,33 +56,13 @@ This project is designed to serve as a **clean, visual, and research-friendly en
 ---
 
 ## 🌟 At a Glance
+This repository instead emphasizes a unified relational perspective and makes the landscape easier to browse, compare, and extend both HGT and HOI ultimately predict **structured human-centered relationships**.
 
 | Scope | What You Can Find Here | Why It Matters |
 |---|---|---|
 | **Tasks** | HGT, HOI, and unified relation understanding | Connects attention modeling with interaction reasoning |
 | **Content** | Taxonomies, representative papers, datasets, metrics, figures, and performance tables | Helps readers move quickly from overview to details |
 | **Use Cases** | Survey reading, paper discovery, benchmark lookup, project bootstrapping | Useful for both newcomers and active researchers |
-
----
-
-## 🎯 Why This Project
-
-Most existing reviews focus on either gaze understanding or HOI detection alone. This repository instead emphasizes a unified relational perspective and makes the landscape easier to browse, compare, and extend:
-
-- both HGT and HOI ultimately predict **structured human-object relations**
-- both fields have evolved from **location-required pipelines** to **location-free, end-to-end, and semantics-aware modeling**
-- **GOP** serves as a natural bridge from attentional localization to interaction-oriented reasoning
-
-This repository is especially useful if you work on:
-
-- gaze following
-- gaze target detection
-- gaze object prediction
-- human-object interaction detection
-- nonverbal interaction understanding
-- embodied AI
-- assistive robotics
-- behavior analysis
 
 ---
 
@@ -96,35 +73,17 @@ A unified way to describe the problem is:
 ```text
 f : I → {<h, r, t>}
 ```
-
-Where:
-
-- `I` = input image or video
-- `h` = human instance
-- `t` = target entity
-- `r` = relation predicate
+Where: `I` = input image or video; `h` = human instance; `t` = target entity; `r` = relation predicate
 
 Under this view:
 
 - **HGT** can be seen as a special case with a fixed attentional relation such as **gazing at**
 - **HOI** uses richer predicates such as **hold**, **ride**, **point to**, or **touch**
-- **GOP** upgrades gaze understanding from spatial localization to object-level semantic grounding
 
 <p align="center">
   <img src="./readme_assets/unified_pipeline.png" alt="Comparison of gaze relation modeling, interaction relation modeling, and unified human-object relationship modeling" width="96%">
 </p>
 <p align="center"><em>From gaze to interaction: task evolution and unified human-object relationship modeling pipeline.</em></p>
-
----
-
-## 🧭 How to Read This Repository
-
-You can use this repository in several ways:
-
-- **As a survey companion**: follow the figures, taxonomies, and benchmark summaries section by section
-- **As a paper list**: expand the taxonomy blocks to browse representative methods by category
-- **As a benchmark reference**: jump directly to the dataset and evaluation sections
-- **As a project starter**: use the reading path, roadmap, and curated lists to build your own notes or awesome-style resources
 
 ---
 ## 🗂 Taxonomy
