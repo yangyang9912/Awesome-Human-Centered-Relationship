@@ -321,7 +321,7 @@ GOP extends gaze target prediction from **where someone looks** to **what object
 
 ---
 
-### E. Performance Snapshots for HGT and GOP
+### E. Performance Snapshots for HGT
 
 <p align="center">
   <img src="./readme_assets/hgt_performance_table.png" alt="Performance table for HGT recognition methods on GazeFollow and VAT" width="96%">
@@ -572,7 +572,6 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 
 ---
 
-
 ### C. Performance Snapshot for HOI
 
 <p align="center">
@@ -580,28 +579,6 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 </p>
 <p align="center"><em>Representative HOI detection performance on HICO-Det and V-COCO.</em></p>
 
----
-
-## 3. Bridging from Gaze to Interaction
-
-Three important directions define this transition:
-
-### From auxiliary fusion to explicit relational understanding
-Gaze is no longer treated only as an auxiliary cue for action recognition or HOI. Instead, it becomes part of explicit human-object relation modeling.
-
-### Bidirectional connections between gaze and interaction
-Gaze can help anticipate future interaction, while action context can constrain plausible gaze targets.
-
-### GOP as a bridge
-GOP is especially important because it moves gaze understanding from abstract spatial positions to grounded semantic objects, making it structurally closer to HOI.
-
----
-
-
-<!-- ## 📄 Gaze Paper Index
-
-The gaze-related papers from the uploaded spreadsheet have been reorganized into the taxonomy below.
-A dedicated paper list is also provided in [`gaze_papers_index.md`](./gaze_papers_index.md). -->
 ---
 
 ## 🛣 Roadmap
