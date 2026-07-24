@@ -68,10 +68,10 @@ Under this view:
 
 | Dataset | Paper | Venue | Year | Dataset Link | Highlights |
 |---|---|---|---:|---|---|
-| **DiSG** | [Open-Vocabulary Gaze Object Prediction: Benchmark and Method](https://arxiv.org/abs/2607.18827) | ACM MM2026 | 2021 | [Dataset](https://github.com/sensniu/ovgop#download) | Diverse scenes benchmark for gaze object prediction |
+| **DiSG** | [Open-Vocabulary Gaze Object Prediction: Benchmark and Method](https://arxiv.org/abs/2607.18827) | ACM MM | 2026 | [Dataset](https://github.com/sensniu/ovgop#download) | Diverse scenes benchmark for gaze object prediction |
+| **GESCAM** | [GESCAM: Classroom Attention Measurement](https://openaccess.thecvf.com/content/CVPR2024W/GAZE/html/Mathew_GESCAM__A_Dataset_and_Method_on_Gaze_Estimation_for_CVPRW_2024_paper.html) | CVPRW | 2024 | [Dataset](https://athulmmathew.github.io/GESCAM/) | Classroom-oriented gaze-object dataset |
 | **GOO-Synth** | [GOO: Gaze Object Prediction in Retail](https://openaccess.thecvf.com/content/CVPR2021W/GAZE/papers/Tomas_GOO_A_Dataset_for_Gaze_Object_Prediction_in_Retail_Environments_CVPRW_2021_paper.pdf) | CVPRW | 2021 | [Dataset](https://github.com/upeee/GOO-GAZE2021) | Synthetic benchmark for gaze object prediction |
 | **GOO-Real** | [GOO: Gaze Object Prediction in Retail](https://openaccess.thecvf.com/content/CVPR2021W/GAZE/papers/Tomas_GOO_A_Dataset_for_Gaze_Object_Prediction_in_Retail_Environments_CVPRW_2021_paper.pdf) | CVPRW | 2021 | [Dataset](https://github.com/upeee/GOO-GAZE2021) | Real-world benchmark for gaze object prediction |
-| **GESCAM** | [GESCAM: Classroom Attention Measurement](https://openaccess.thecvf.com/content/CVPR2024W/GAZE/html/Mathew_GESCAM__A_Dataset_and_Method_on_Gaze_Estimation_for_CVPRW_2024_paper.html) | CVPRW | 2024 | [Dataset](https://athulmmathew.github.io/GESCAM/) | Classroom-oriented gaze-object dataset |
 
 ---
 
