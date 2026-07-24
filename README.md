@@ -127,7 +127,46 @@ Under this view:
 
 ## 1. Human-Gaze-Target Recognition
 
-### A. Location-required HGT Detection
+### A. Gaze Object Prediction (GOP)
+
+<!-- <details>
+<summary><strong>Datasets and Benchmarks</strong> (2 papers)</summary>
+
+| Paper | Venue | Year |
+|---|---|---:|
+| [GOO: A Dataset for Gaze Object Prediction in Retail Environments](https://ieeexplore.ieee.org/document/9523161) | CVPRW | 2021 |
+| [GESCAM : A Dataset and Method on Gaze Estimation for Classroom Attention Measurement](https://doi.org/10.1109/CVPRW63382.2024.00068) | CVPRW | 2024 |
+
+</details> -->
+
+GOP extends gaze target prediction from **where someone looks** to **what object is being attended to**.
+
+<details>
+<summary><strong>Location-required GOP</strong> (4 papers)</summary>
+
+| Paper | Venue | Year |
+|---|---|---:|
+| [GaTector: A Unified Framework for Gaze Object Prediction](https://ieeexplore.ieee.org/document/9879784) | CVPR | 2022 |
+| [Towards Fusing Gaze Estimation and Object Prediction: What are You Looking at?](https://doi.org/10.2139/ssrn.4939643) | EAAI | 2024 |
+| [TransGOP: Transformer-Based Gaze Object Prediction](https://ojs.aaai.org/index.php/AAAI/article/view/28883) | AAAI | 2024 |
+| [VL-HTR: Learning Human–Target Representation From Vision–Language Model](https://doi.org/10.1109/tcyb.2026.3659335) | TCYB | 2026 |
+
+</details>
+
+<details>
+<summary><strong>Location-free GOP</strong> (3 papers)</summary>
+
+| Paper | Venue | Year |
+|---|---|---:|
+| [Boosting Gaze Object Prediction via Pixel-level Supervision from Vision Foundation Model](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/08783.pdf) | ECCV | 2024 |
+| [GaTector+: A Unified Head-free Framework for Gaze Object and Gaze Following Prediction](https://doi.org/10.48550/arXiv.2510.25301) | arXiv | 2025 |
+| [TransGOP-R: Transformer-Based Real-World Gaze Object Prediction](https://ieeexplore.ieee.org/document/11275879) | TMM | 2025 |
+
+</details>
+
+---
+
+### B. Location-required HGT Detection
 The target person is given in advance, usually through a head or face bounding box.
 
 <details>
@@ -217,7 +256,7 @@ The target person is given in advance, usually through a head or face bounding b
 
 ---
 
-### B. Location-free HGT Detection
+### C. Location-free HGT Detection
 The model predicts human-target gaze relations directly from the scene, without explicit head priors.
 
 <details>
@@ -243,45 +282,6 @@ The model predicts human-target gaze relations directly from the scene, without 
 | [GazeLLM: a plug-and-play zero-shot LLM reasoning framework for boosting gaze target detection](https://link.springer.com/article/10.1007/s44267-025-00101-1) | Visual Intelligence | 2025 |
 | [GazeVLM: A Vision-Language Model for Multi-Task Gaze Understanding](https://arxiv.org/abs/2511.06348) | arXiv | 2025 |
 | [VL4Gaze: Unleashing Vision-Language Models for Gaze Following](https://doi.org/10.48550/arXiv.2512.20735) | arXiv | 2026 |
-
-</details>
-
----
-
-### C. Gaze Object Prediction (GOP)
-
-<!-- <details>
-<summary><strong>Datasets and Benchmarks</strong> (2 papers)</summary>
-
-| Paper | Venue | Year |
-|---|---|---:|
-| [GOO: A Dataset for Gaze Object Prediction in Retail Environments](https://ieeexplore.ieee.org/document/9523161) | CVPRW | 2021 |
-| [GESCAM : A Dataset and Method on Gaze Estimation for Classroom Attention Measurement](https://doi.org/10.1109/CVPRW63382.2024.00068) | CVPRW | 2024 |
-
-</details> -->
-
-GOP extends gaze target prediction from **where someone looks** to **what object is being attended to**.
-
-<details>
-<summary><strong>Location-required GOP</strong> (4 papers)</summary>
-
-| Paper | Venue | Year |
-|---|---|---:|
-| [GaTector: A Unified Framework for Gaze Object Prediction](https://ieeexplore.ieee.org/document/9879784) | CVPR | 2022 |
-| [Towards Fusing Gaze Estimation and Object Prediction: What are You Looking at?](https://doi.org/10.2139/ssrn.4939643) | EAAI | 2024 |
-| [TransGOP: Transformer-Based Gaze Object Prediction](https://ojs.aaai.org/index.php/AAAI/article/view/28883) | AAAI | 2024 |
-| [VL-HTR: Learning Human–Target Representation From Vision–Language Model](https://doi.org/10.1109/tcyb.2026.3659335) | TCYB | 2026 |
-
-</details>
-
-<details>
-<summary><strong>Location-free GOP</strong> (3 papers)</summary>
-
-| Paper | Venue | Year |
-|---|---|---:|
-| [Boosting Gaze Object Prediction via Pixel-level Supervision from Vision Foundation Model](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/08783.pdf) | ECCV | 2024 |
-| [GaTector+: A Unified Head-free Framework for Gaze Object and Gaze Following Prediction](https://doi.org/10.48550/arXiv.2510.25301) | arXiv | 2025 |
-| [TransGOP-R: Transformer-Based Real-World Gaze Object Prediction](https://ieeexplore.ieee.org/document/11275879) | TMM | 2025 |
 
 </details>
 
