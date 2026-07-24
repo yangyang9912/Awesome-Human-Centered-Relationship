@@ -1,26 +1,22 @@
 <div align="center">
 
 # Human-Centered Relationship Understanding
-### From Gaze to Interaction
-
 <p>
   <strong>A curated, survey-driven GitHub project for unified human-centered relationship understanding</strong><br/>
   Covering <code>Human-Gaze-Target (HGT) Recognition</code>, and <code>Human-Object Interaction (HOI) Detection</code>.
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/Task-HGT%20Detection-6C63FF" alt="HGT Recognition"/>
+  <img src="https://img.shields.io/badge/Type-Survey%20Project-111827" alt="Survey Project"/>
+  <img src="https://img.shields.io/badge/Task-HGT%20Recognition-6C63FF" alt="HGT Recognition"/>
   <img src="https://img.shields.io/badge/Task-GOP-8E7CFF" alt="GOP"/>
   <img src="https://img.shields.io/badge/Task-HOI%20Detection-4C9AFF" alt="HOI Detection"/>
-  <img src="https://img.shields.io/badge/Focus-Unified%20Relation%20Modeling-1ABC9C" alt="Unified Relation Modeling"/>
-  <img src="https://img.shields.io/badge/Type-Survey%20Project-111827" alt="Survey Project"/>
 </p>
 
 <p>
   <a href="#-overview">Overview</a> •
-  <a href="#-at-a-glance">At a Glance</a> •
-  <a href="#-taxonomy">Taxonomy</a> •
   <a href="#-benchmarks">Benchmarks</a> •
+  <a href="#-taxonomy">Taxonomy</a> •
   <a href="#-roadmap">Roadmap</a>
 </p>
 
@@ -36,44 +32,21 @@ This repository is designed to support paper reading, benchmark comparison, and 
 
 ## ✨ Overview
 
-Human-Object Relationship Understanding studies how humans attend to and interact with surrounding objects in visual scenes. This repository organizes the area through three tightly connected problem settings:
+Human-Object Relationship Understanding studies how humans attend to and interact with surrounding objects in visual scenes. This repository instead emphasizes a unified relational perspective and makes the landscape easier to browse, compare, and extend both HGT and HOI ultimately predict **structured human-centered relationships**:
 
 - **Human-Gaze-Target (HGT) Recognition**: predicting where or what a person is looking at
 - **Human-Object Interaction (HOI) Detection**: predicting how a person physically interacts with an object
-
-This project is designed to serve as a **clean, visual, and research-friendly entry point** for exploring unified human-object relation modeling.
-
-<p align="center">
-  <img src="./readme_assets/performance.png" alt="Figure 1 placeholder for the main teaser figure of the survey project" width="100%">
-</p>
-<p align="center"><em>Performance development for both HGT recognition (left) and HOI detection (right)</em></p>
 
 <p align="center">
   <img src="./readme_assets/overview_timeline.png" alt="Chronological overview of representative methods spanning HGT recognition and HOI detection" width="100%">
 </p>
 <p align="center"><em>Chronological overview of representative methods across HGT recognition and HOI detection.</em></p>
 
----
+### 🧠 Core Formulation
 
-## 🌟 At a Glance
-This repository instead emphasizes a unified relational perspective and makes the landscape easier to browse, compare, and extend both HGT and HOI ultimately predict **structured human-centered relationships**.
+A unified way to describe the problem is: `f : I → {<h, r, t>}`
 
-| Scope | What You Can Find Here | Why It Matters |
-|---|---|---|
-| **Tasks** | HGT, HOI, and unified relation understanding | Connects attention modeling with interaction reasoning |
-| **Content** | Taxonomies, representative papers, datasets, metrics, figures, and performance tables | Helps readers move quickly from overview to details |
-| **Use Cases** | Survey reading, paper discovery, benchmark lookup, project bootstrapping | Useful for both newcomers and active researchers |
-
----
-
-## 🧠 Core Formulation
-
-A unified way to describe the problem is:
-
-```text
-f : I → {<h, r, t>}
-```
-Where: `I` = input image or video; `h` = human instance; `t` = target entity; `r` = relation predicate
+Where: `I` = input image or video; `h` = human instance; `t` = target entity; `r` = relation predicate. 
 
 Under this view:
 
@@ -86,6 +59,70 @@ Under this view:
 <p align="center"><em>From gaze to interaction: task evolution and unified human-object relationship modeling pipeline.</em></p>
 
 ---
+
+## 📚 Benchmarks
+
+> The tables below are expanded from the dataset summary you provided. I kept the original **Highlights** column, and added **venue**, **paper title**, **paper link**, **dataset link**, and the main dataset attributes from your table.
+
+## Gaze Object Prediction
+
+| Dataset | Paper | Venue | Year | Dataset Link | Highlights |
+|---|---|---|---:|---|---|
+| **DiSG** | [Open-Vocabulary Gaze Object Prediction: Benchmark and Method](https://arxiv.org/abs/2607.18827) | ACM MM2026 | 2021 | [Dataset](https://github.com/sensniu/ovgop#download) | Diverse scenes benchmark for gaze object prediction |
+| **GOO-Synth** | [GOO: Gaze Object Prediction in Retail](https://openaccess.thecvf.com/content/CVPR2021W/GAZE/papers/Tomas_GOO_A_Dataset_for_Gaze_Object_Prediction_in_Retail_Environments_CVPRW_2021_paper.pdf) | CVPRW | 2021 | [Dataset](https://github.com/upeee/GOO-GAZE2021) | Synthetic benchmark for gaze object prediction |
+| **GOO-Real** | [GOO: Gaze Object Prediction in Retail](https://openaccess.thecvf.com/content/CVPR2021W/GAZE/papers/Tomas_GOO_A_Dataset_for_Gaze_Object_Prediction_in_Retail_Environments_CVPRW_2021_paper.pdf) | CVPRW | 2021 | [Dataset](https://github.com/upeee/GOO-GAZE2021) | Real-world benchmark for gaze object prediction |
+| **GESCAM** | [GESCAM: Classroom Attention Measurement](https://openaccess.thecvf.com/content/CVPR2024W/GAZE/html/Mathew_GESCAM__A_Dataset_and_Method_on_Gaze_Estimation_for_CVPRW_2024_paper.html) | CVPRW | 2024 | [Dataset](https://athulmmathew.github.io/GESCAM/) | Classroom-oriented gaze-object dataset |
+
+---
+
+## Human-Gaze-Target Recognition
+
+| Dataset | Paper | Venue | Year | Dataset Link | Highlights |
+|---|---|---|---:|---|---|
+| **GazeFollow** | [Where are they looking?](https://papers.nips.cc/paper/2015/hash/ec8956637a99787bd197eacd77acce5e-Abstract.html) | NeurIPS | 2015 | [Dataset](http://gazefollow.csail.mit.edu/) | Classic gaze target benchmark in natural scenes |
+| **VideoGaze** | [Following Gaze in Video](https://openaccess.thecvf.com/content_ICCV_2017/papers/Recasens_Following_Gaze_in_ICCV_2017_paper.pdf) | ICCV | 2017 | [Dataset](http://videogazefollow.csail.mit.edu/) | Early video benchmark for cross-frame gaze following |
+| **DLGaze** | [Believe It or Not, We Know What You Are Looking At!](https://link.springer.com/chapter/10.1007/978-3-030-20893-6_3) | ACCV | 2018 | [Dataset](https://github.com/svip-lab/GazeFollowing) | Real indoor video-based gaze following |
+| **TIA** | [Where and Why Are They Looking?](https://openaccess.thecvf.com/content_cvpr_2018/html/Wei_Where_and_Why_CVPR_2018_paper.html) | CVPR | 2018 | — | Joint attention–intention–task benchmark with RGB-D signals |
+| **VAT** | [Detecting Attended Visual Targets in Video](https://openaccess.thecvf.com/content_CVPR_2020/html/Chong_Detecting_Attended_Visual_Targets_in_Video_CVPR_2020_paper.html) | CVPR | 2020 | [Dataset](https://github.com/ejcgt/attention-target-detection) | Video benchmark with in-frame and out-of-frame targets |
+| **GFIE** | [GFIE: A Dataset and Baseline for Gaze-Following](https://openaccess.thecvf.com/content/CVPR2023/html/Hu_GFIE_A_Dataset_and_Baseline_for_Gaze-Following_From_2D_to_CVPR_2023_paper.html) | CVPR | 2023 | [Dataset](https://sites.google.com/view/gfie) | RGB-D benchmark for 2D and 3D gaze following |
+| **ChildPlay** | [ChildPlay: A New Benchmark for Children's Gaze](https://openaccess.thecvf.com/content/ICCV2023/papers/Tafasca_ChildPlay_A_New_Benchmark_for_Understanding_Childrens_Gaze_Behaviour_ICCV_2023_paper.pdf) | ICCV | 2023 | [Dataset](https://github.com/idiap/geomgaze) | Natural child-centered scenes with rich social gaze behavior |
+| **VsGaze** | [MTGS: Multi-Person Temporal Gaze Following](https://proceedings.neurips.cc/paper_files/paper/2024/hash/1caf09c9f4e6b0150b06a07e77f2710c-Abstract-Conference.html) | NeurIPS | 2024 | [Dataset](https://github.com/idiap/MTGS) | Unified benchmark for multi-person and social gaze |
+| **VideoCoAtt** | [Inferring Shared Attention in Social Scene Videos](https://openaccess.thecvf.com/content_cvpr_2018/html/Fan_Inferring_Shared_Attention_CVPR_2018_paper.html) | CVPR | 2018 | [Dataset](http://www.stat.ucla.edu/~lifengfan/shared_attention) | Shared-attention benchmark for multi-person social scenes |
+| **UCO-LAEO** | [LAEO-Net: Revisiting People Looking at Each Other](https://openaccess.thecvf.com/content_CVPR_2019/papers/Marin-Jimenez_LAEO-Net_Revisiting_People_Looking_at_Each_Other_in_Videos_CVPR_2019_paper.pdf) | CVPR | 2019 | [Dataset](https://github.com/AVAuco/ucolaeodb) | Benchmark for mutual gaze in videos |
+| **AVA-LAEO** | [LAEO-Net: Revisiting People Looking at Each Other](https://openaccess.thecvf.com/content_CVPR_2019/papers/Marin-Jimenez_LAEO-Net_Revisiting_People_Looking_at_Each_Other_in_Videos_CVPR_2019_paper.pdf) | CVPR | 2019 | [Dataset](https://github.com/AVAuco/laeonetplus) | Larger and more challenging mutual-gaze benchmark |
+| **VACATION** | [Understanding Human Gaze Communication](https://openaccess.thecvf.com/content_ICCV_2019/html/Fan_Understanding_Human_Gaze_Communication_by_Spatio-Temporal_Graph_Reasoning_ICCV_2019_paper.html) | ICCV | 2019 | [Dataset](https://github.com/LifengFan/Human-Gaze-Communication) | Social gaze communication with atomic and event labels |
+
+---
+
+## Human-Object Interaction Detection
+
+| Dataset | Paper | Venue | Year | Dataset Link | Highlights |
+|---|---|---|---:|---|---|
+| **HICO** | [HICO: Recognizing Human-Object Interactions](https://openaccess.thecvf.com/content_iccv_2015/html/Chao_HICO_A_Benchmark_ICCV_2015_paper.html) | ICCV | 2015 | [Dataset](https://github.com/ywchao/hico_benchmark) | Early benchmark for interaction classification |
+| **HICO-Det** | [Learning to Detect Human-Object Interactions](https://arxiv.org/abs/1702.05448) | WACV | 2018 | [Dataset](https://opendatalab.com/OpenDataLab/HICO-DET) | Standard benchmark for HOI triplet detection |
+| **V-COCO** | [Visual Semantic Role Labeling](https://arxiv.org/abs/1505.04474) | arXiv | 2015 | [Dataset](https://github.com/s-gupta/v-coco) | Verb-role style interaction benchmark |
+| **HCVRD** | [HCVRD: Human-Centered Visual Relationship Detection](https://ojs.aaai.org/index.php/AAAI/article/view/12260) | AAAI | 2018 | [Dataset](https://github.com/bohanzhuang/HCVRD) | Large-scale human-centered relationship benchmark |
+| **HAKE** | [HAKE: Human Activity Knowledge Engine](https://arxiv.org/abs/1904.06539) | arXiv | 2020 | [Dataset](http://hake-mvig.cn/home/) | Fine-grained body-part state annotations |
+| **HOI-A** | [PPDM: Parallel Point Detection and Matching](https://openaccess.thecvf.com/content_CVPR_2020/html/Liao_PPDM_Parallel_Point_Detection_and_Matching_for_Real-Time_Human-Object_Interaction_CVPR_2020_paper.html) | CVPR | 2020 | [Dataset](https://github.com/YueLiao/PPDM) | HOI benchmark with RGB and infrared imagery |
+| **Ambiguous-HOI** | [Detailed 2D-3D Joint Representation for HOI](https://openaccess.thecvf.com/content_CVPR_2020/html/Li_Detailed_2D-3D_Joint_Representation_for_Human-Object_Interaction_CVPR_2020_paper.html) | CVPR | 2020 | [Dataset](https://github.com/DirtyHarryLYL/DJ-RN) | Hard benchmark for pose and appearance ambiguity |
+| **HOI-VP** | [Polysemy Deciphering Network for HOI](https://link.springer.com/article/10.1007/s11263-021-01458-8) | IJCV | 2021 | [Dataset](https://github.com/MuchHair/PD-Net) | Benchmark emphasizing diverse verb polysemy |
+| **SWiG-HOI** | [Discovering Human Interactions via Query](https://openaccess.thecvf.com/content/ICCV2021/html/Wang_Discovering_Human_Interactions_With_Large-Vocabulary_Objects_via_Query_and_Multi-Scale_ICCV_2021_paper.html) | ICCV | 2021 | [Dataset](https://github.com/scwangdyd/large_vocabulary_hoi_detection) | Large-vocabulary HOI benchmark |
+| **BEHAVE** | [BEHAVE: Tracking Human Object Interactions](https://openaccess.thecvf.com/content/CVPR2022/papers/Bhatnagar_BEHAVE_Dataset_and_Method_for_Tracking_Human_Object_Interactions_CVPR_2022_paper.pdf) | CVPR | 2022 | [Dataset](http://virtualhumans.mpi-inf.mpg.de/behave) | 3D, multi-view, contact-aware interaction |
+| **HAKE-HOI** | [HAKE: A Knowledge Engine Foundation](https://arxiv.org/abs/2202.06851) | TPAMI | 2022 | [Dataset](https://github.com/DirtyHarryLYL/Transferable-Interactiveness-Network) | Large-scale HOI split built from HAKE |
+| **HOT** | [Detecting Human-Object Contact in Images](https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Detecting_Human-Object_Contact_in_Images_CVPR_2023_paper.pdf) | CVPR | 2023 | [Dataset](https://hot.is.tue.mpg.de) | Contact-area and body-part reasoning |
+| **HOI-SDC** | [FGAHOI: Fine-Grained Anchors for HOI](https://arxiv.org/abs/2301.04019) | TPAMI | 2024 | [Dataset](https://github.com/xiaomabufei/FGAHOI) | Focused on difficult human-object pair scenarios |
+
+---
+
+## Unified Relation Understanding
+
+| Dataset | Paper | Venue | Year | Dataset Link | Highlights |
+|---|---|---|---:|---|---|
+| **NVI** | [Nonverbal Interaction Detection](https://link.springer.com/chapter/10.1007/978-3-031-72670-5_16) | ECCV | 2024 | [Dataset](https://github.com/weijianan1/NVI) | Unifies gaze, touch, expression, gesture, and posture |
+| **GazeHOI** | [Toward Semantic Gaze Target Detection](https://proceedings.neurips.cc/paper_files/paper/2024/hash/dbeb7e621d4a554069a6a775da0f7273-Abstract-Conference.html) | NeurIPS | 2024 | [Dataset](https://github.com/idiap/semgaze) | Reuses HOI resources for semantic gaze grounding |
+
+---
+
 ## 🗂 Taxonomy
 
 ## 1. Human-Gaze-Target Recognition
@@ -283,8 +320,6 @@ GOP extends gaze target prediction from **where someone looks** to **what object
 </details>
 
 ---
-
-
 
 ### E. Performance Snapshots for HGT and GOP
 
@@ -538,8 +573,6 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 ---
 
 
----
-
 ### C. Performance Snapshot for HOI
 
 <p align="center">
@@ -569,80 +602,6 @@ GOP is especially important because it moves gaze understanding from abstract sp
 
 The gaze-related papers from the uploaded spreadsheet have been reorganized into the taxonomy below.
 A dedicated paper list is also provided in [`gaze_papers_index.md`](./gaze_papers_index.md). -->
-
-
-## 📚 Benchmarks
-
-> The tables below are expanded from the dataset summary you provided. I kept the original **Highlights** column, and added **venue**, **paper title**, **paper link**, **dataset link**, and the main dataset attributes from your table.
-
-## Human-Gaze-Target Recognition
-
-| Dataset | Paper | Venue | Year | Dataset Link | Highlights |
-|---|---|---|---:|---|---|
-| **GazeFollow** | [Where are they looking?](https://papers.nips.cc/paper/2015/hash/ec8956637a99787bd197eacd77acce5e-Abstract.html) | NeurIPS | 2015 | [Dataset](http://gazefollow.csail.mit.edu/) | Classic gaze target benchmark in natural scenes |
-| **VideoGaze** | [Following Gaze in Video](https://openaccess.thecvf.com/content_ICCV_2017/papers/Recasens_Following_Gaze_in_ICCV_2017_paper.pdf) | ICCV | 2017 | [Dataset](http://videogazefollow.csail.mit.edu/) | Early video benchmark for cross-frame gaze following |
-| **DLGaze** | [Believe It or Not, We Know What You Are Looking At!](https://link.springer.com/chapter/10.1007/978-3-030-20893-6_3) | ACCV | 2018 | [Dataset](https://github.com/svip-lab/GazeFollowing) | Real indoor video-based gaze following |
-| **TIA** | [Where and Why Are They Looking?](https://openaccess.thecvf.com/content_cvpr_2018/html/Wei_Where_and_Why_CVPR_2018_paper.html) | CVPR | 2018 | — | Joint attention–intention–task benchmark with RGB-D signals |
-| **VAT** | [Detecting Attended Visual Targets in Video](https://openaccess.thecvf.com/content_CVPR_2020/html/Chong_Detecting_Attended_Visual_Targets_in_Video_CVPR_2020_paper.html) | CVPR | 2020 | [Dataset](https://github.com/ejcgt/attention-target-detection) | Video benchmark with in-frame and out-of-frame targets |
-| **GFIE** | [GFIE: A Dataset and Baseline for Gaze-Following](https://openaccess.thecvf.com/content/CVPR2023/html/Hu_GFIE_A_Dataset_and_Baseline_for_Gaze-Following_From_2D_to_CVPR_2023_paper.html) | CVPR | 2023 | [Dataset](https://sites.google.com/view/gfie) | RGB-D benchmark for 2D and 3D gaze following |
-| **ChildPlay** | [ChildPlay: A New Benchmark for Children's Gaze](https://openaccess.thecvf.com/content/ICCV2023/papers/Tafasca_ChildPlay_A_New_Benchmark_for_Understanding_Childrens_Gaze_Behaviour_ICCV_2023_paper.pdf) | ICCV | 2023 | [Dataset](https://github.com/idiap/geomgaze) | Natural child-centered scenes with rich social gaze behavior |
-| **VsGaze** | [MTGS: Multi-Person Temporal Gaze Following](https://proceedings.neurips.cc/paper_files/paper/2024/hash/1caf09c9f4e6b0150b06a07e77f2710c-Abstract-Conference.html) | NeurIPS | 2024 | [Dataset](https://github.com/idiap/MTGS) | Unified benchmark for multi-person and social gaze |
-| **VideoCoAtt** | [Inferring Shared Attention in Social Scene Videos](https://openaccess.thecvf.com/content_cvpr_2018/html/Fan_Inferring_Shared_Attention_CVPR_2018_paper.html) | CVPR | 2018 | [Dataset](http://www.stat.ucla.edu/~lifengfan/shared_attention) | Shared-attention benchmark for multi-person social scenes |
-| **UCO-LAEO** | [LAEO-Net: Revisiting People Looking at Each Other](https://openaccess.thecvf.com/content_CVPR_2019/papers/Marin-Jimenez_LAEO-Net_Revisiting_People_Looking_at_Each_Other_in_Videos_CVPR_2019_paper.pdf) | CVPR | 2019 | [Dataset](https://github.com/AVAuco/ucolaeodb) | Benchmark for mutual gaze in videos |
-| **AVA-LAEO** | [LAEO-Net: Revisiting People Looking at Each Other](https://openaccess.thecvf.com/content_CVPR_2019/papers/Marin-Jimenez_LAEO-Net_Revisiting_People_Looking_at_Each_Other_in_Videos_CVPR_2019_paper.pdf) | CVPR | 2019 | [Dataset](https://github.com/AVAuco/laeonetplus) | Larger and more challenging mutual-gaze benchmark |
-| **VACATION** | [Understanding Human Gaze Communication](https://openaccess.thecvf.com/content_ICCV_2019/html/Fan_Understanding_Human_Gaze_Communication_by_Spatio-Temporal_Graph_Reasoning_ICCV_2019_paper.html) | ICCV | 2019 | [Dataset](https://github.com/LifengFan/Human-Gaze-Communication) | Social gaze communication with atomic and event labels |
-
----
-
-## Gaze Object Prediction
-
-| Dataset | Paper | Venue | Year | Dataset Link | Highlights |
-|---|---|---|---:|---|---|
-| **GOO-Synth** | [GOO: Gaze Object Prediction in Retail](https://openaccess.thecvf.com/content/CVPR2021W/GAZE/papers/Tomas_GOO_A_Dataset_for_Gaze_Object_Prediction_in_Retail_Environments_CVPRW_2021_paper.pdf) | CVPRW | 2021 | [Dataset](https://github.com/upeee/GOO-GAZE2021) | Synthetic benchmark for gaze object prediction |
-| **GOO-Real** | [GOO: Gaze Object Prediction in Retail](https://openaccess.thecvf.com/content/CVPR2021W/GAZE/papers/Tomas_GOO_A_Dataset_for_Gaze_Object_Prediction_in_Retail_Environments_CVPRW_2021_paper.pdf) | CVPRW | 2021 | [Dataset](https://github.com/upeee/GOO-GAZE2021) | Real-world benchmark for gaze object prediction |
-| **GESCAM** | [GESCAM: Classroom Attention Measurement](https://openaccess.thecvf.com/content/CVPR2024W/GAZE/html/Mathew_GESCAM__A_Dataset_and_Method_on_Gaze_Estimation_for_CVPRW_2024_paper.html) | CVPRW | 2024 | [Dataset](https://athulmmathew.github.io/GESCAM/) | Classroom-oriented gaze-object dataset |
-
----
-
-## Human-Object Interaction Detection
-
-| Dataset | Paper | Venue | Year | Dataset Link | Highlights |
-|---|---|---|---:|---|---|
-| **HICO** | [HICO: Recognizing Human-Object Interactions](https://openaccess.thecvf.com/content_iccv_2015/html/Chao_HICO_A_Benchmark_ICCV_2015_paper.html) | ICCV | 2015 | [Dataset](https://github.com/ywchao/hico_benchmark) | Early benchmark for interaction classification |
-| **HICO-Det** | [Learning to Detect Human-Object Interactions](https://arxiv.org/abs/1702.05448) | WACV | 2018 | [Dataset](https://opendatalab.com/OpenDataLab/HICO-DET) | Standard benchmark for HOI triplet detection |
-| **V-COCO** | [Visual Semantic Role Labeling](https://arxiv.org/abs/1505.04474) | arXiv | 2015 | [Dataset](https://github.com/s-gupta/v-coco) | Verb-role style interaction benchmark |
-| **HCVRD** | [HCVRD: Human-Centered Visual Relationship Detection](https://ojs.aaai.org/index.php/AAAI/article/view/12260) | AAAI | 2018 | [Dataset](https://github.com/bohanzhuang/HCVRD) | Large-scale human-centered relationship benchmark |
-| **HAKE** | [HAKE: Human Activity Knowledge Engine](https://arxiv.org/abs/1904.06539) | arXiv | 2020 | [Dataset](http://hake-mvig.cn/home/) | Fine-grained body-part state annotations |
-| **HOI-A** | [PPDM: Parallel Point Detection and Matching](https://openaccess.thecvf.com/content_CVPR_2020/html/Liao_PPDM_Parallel_Point_Detection_and_Matching_for_Real-Time_Human-Object_Interaction_CVPR_2020_paper.html) | CVPR | 2020 | [Dataset](https://github.com/YueLiao/PPDM) | HOI benchmark with RGB and infrared imagery |
-| **Ambiguous-HOI** | [Detailed 2D-3D Joint Representation for HOI](https://openaccess.thecvf.com/content_CVPR_2020/html/Li_Detailed_2D-3D_Joint_Representation_for_Human-Object_Interaction_CVPR_2020_paper.html) | CVPR | 2020 | [Dataset](https://github.com/DirtyHarryLYL/DJ-RN) | Hard benchmark for pose and appearance ambiguity |
-| **HOI-VP** | [Polysemy Deciphering Network for HOI](https://link.springer.com/article/10.1007/s11263-021-01458-8) | IJCV | 2021 | [Dataset](https://github.com/MuchHair/PD-Net) | Benchmark emphasizing diverse verb polysemy |
-| **SWiG-HOI** | [Discovering Human Interactions via Query](https://openaccess.thecvf.com/content/ICCV2021/html/Wang_Discovering_Human_Interactions_With_Large-Vocabulary_Objects_via_Query_and_Multi-Scale_ICCV_2021_paper.html) | ICCV | 2021 | [Dataset](https://github.com/scwangdyd/large_vocabulary_hoi_detection) | Large-vocabulary HOI benchmark |
-| **BEHAVE** | [BEHAVE: Tracking Human Object Interactions](https://openaccess.thecvf.com/content/CVPR2022/papers/Bhatnagar_BEHAVE_Dataset_and_Method_for_Tracking_Human_Object_Interactions_CVPR_2022_paper.pdf) | CVPR | 2022 | [Dataset](http://virtualhumans.mpi-inf.mpg.de/behave) | 3D, multi-view, contact-aware interaction |
-| **HAKE-HOI** | [HAKE: A Knowledge Engine Foundation](https://arxiv.org/abs/2202.06851) | TPAMI | 2022 | [Dataset](https://github.com/DirtyHarryLYL/Transferable-Interactiveness-Network) | Large-scale HOI split built from HAKE |
-| **HOT** | [Detecting Human-Object Contact in Images](https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Detecting_Human-Object_Contact_in_Images_CVPR_2023_paper.pdf) | CVPR | 2023 | [Dataset](https://hot.is.tue.mpg.de) | Contact-area and body-part reasoning |
-| **HOI-SDC** | [FGAHOI: Fine-Grained Anchors for HOI](https://arxiv.org/abs/2301.04019) | TPAMI | 2024 | [Dataset](https://github.com/xiaomabufei/FGAHOI) | Focused on difficult human-object pair scenarios |
-
----
-
-## Unified Relation Understanding
-
-| Dataset | Paper | Venue | Year | Dataset Link | Highlights |
-|---|---|---|---:|---|---|
-| **NVI** | [Nonverbal Interaction Detection](https://link.springer.com/chapter/10.1007/978-3-031-72670-5_16) | ECCV | 2024 | [Dataset](https://github.com/weijianan1/NVI) | Unifies gaze, touch, expression, gesture, and posture |
-| **GazeHOI** | [Toward Semantic Gaze Target Detection](https://proceedings.neurips.cc/paper_files/paper/2024/hash/dbeb7e621d4a554069a6a775da0f7273-Abstract-Conference.html) | NeurIPS | 2024 | [Dataset](https://github.com/idiap/semgaze) | Reuses HOI resources for semantic gaze grounding |
-
----
-
-## 📈 Research Trend
-
-The overall trend is moving toward:
-
-- **from location-required to location-free modeling**
-- **from point-level attention prediction to semantic object grounding**
-- **from closed-set recognition to open-vocabulary and vision-language modeling**
-- **from isolated tasks to unified human-object relation understanding**
-
-
 ---
 
 ## 🛣 Roadmap
@@ -659,32 +618,6 @@ The current version already includes the following core components:
 - [x] Add open-source implementations and project links
 - [x] Add timeline-style navigation and visual summaries
 
-
----
-
-## 🔍 Recommended Reading Path
-
-### For beginners
-1. Understand the difference between gaze estimation, gaze following, GOP, and HOI detection  
-2. Follow the task evolution from **HGT → GOP → HOI**  
-3. Learn the unified human-object relational formulation  
-4. Compare major datasets and evaluation settings
-
-### For researchers
-1. Focus on **location-free HGT** and **query-based HOI**
-2. Track **GOP as a bridge**
-3. Follow **vision-language modeling**, **foundation models**, and **open-vocabulary relation understanding**
-4. Pay attention to unified benchmarks and downstream-oriented evaluation
-
----
-
-## 🌟 Potential Project Directions
-
-- Unified benchmarks for gaze, grounding, and interaction
-- Open-vocabulary human-object relation understanding
-- Relation-centric foundation models for human behavior analysis
-- Temporal and socially aware human-object modeling
-- Human-centered scene understanding for robotics and embodied AI
 
 ---
 
