@@ -1,11 +1,11 @@
 <div align="center">
 
-# Human-Object Relationship Understanding
+# Human-Centered Relationship Understanding
 ### From Gaze to Interaction
 
 <p>
-  <strong>A curated, survey-driven GitHub project for unified human-object relation modeling</strong><br/>
-  Covering <code>Human-Gaze-Target (HGT) Recognition</code>, <code>Gaze Object Prediction (GOP)</code>, and <code>Human-Object Interaction (HOI) Detection</code>.
+  <strong>A curated, survey-driven GitHub project for unified human-centered relationship understanding</strong><br/>
+  Covering <code>Human-Gaze-Target (HGT) Recognition</code>, and <code>Human-Object Interaction (HOI) Detection</code>.
 </p>
 
 <p>
@@ -31,7 +31,7 @@
 
 ---
 
-> A unified reading hub for **attention**, **gaze object grounding**, and **interaction reasoning** — with **GOP** as the bridge from *where humans look* to *how humans act on objects*.
+> A unified reading hub for **gaze target grounding** and **interaction reasoning**,  from *where humans look* to *how humans act on objects*.
 
 ## 📬 Project Note
 
@@ -42,7 +42,6 @@ This repository is designed to support paper reading, benchmark comparison, and 
 Human-Object Relationship Understanding studies how humans attend to and interact with surrounding objects in visual scenes. This repository organizes the area through three tightly connected problem settings:
 
 - **Human-Gaze-Target (HGT) Recognition**: predicting where or what a person is looking at
-- **Gaze Object Prediction (GOP)**: moving from gaze localization to object-level semantic grounding
 - **Human-Object Interaction (HOI) Detection**: predicting how a person physically interacts with an object
 
 This project is designed to serve as a **clean, visual, and research-friendly entry point** for exploring unified human-object relation modeling.
@@ -63,7 +62,7 @@ This project is designed to serve as a **clean, visual, and research-friendly en
 
 | Scope | What You Can Find Here | Why It Matters |
 |---|---|---|
-| **Tasks** | HGT, GOP, HOI, and unified relation understanding | Connects attention modeling with interaction reasoning |
+| **Tasks** | HGT, HOI, and unified relation understanding | Connects attention modeling with interaction reasoning |
 | **Content** | Taxonomies, representative papers, datasets, metrics, figures, and performance tables | Helps readers move quickly from overview to details |
 | **Use Cases** | Survey reading, paper discovery, benchmark lookup, project bootstrapping | Useful for both newcomers and active researchers |
 
