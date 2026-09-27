@@ -181,6 +181,11 @@ The target person is given in advance, usually through a head or face bounding b
 | [Gaze Estimation via the Joint Modeling of Multiple Cues](https://doi.org/10.1109/TCSVT.2021.3071621) | TCSVT | 2022 |
 | [Dual Regression-Enhanced Gaze Target Detection in the Wild](https://doi.org/10.1109/TCYB.2023.3244269) | TCYB | 2024 |
 | [Gaze Target Detection Based on Head-Local-Global Coordination](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03933.pdf) | ECCV | 2024 |
+| [TextGaze: Prompting Gaze Target Estimation with Textual Scene Cues](https://arxiv.org/abs/2607.10130) | arXiv | 2026 |
+| [From Gaze to Meaning: A Training-Free AI Agent for Unified Grounding and Explanation](https://arxiv.org/abs/2609.06208) | arXiv | 2026 |
+| [Reusing a Multimodal LLaVA Model for Rapid Learning of Human Gaze Prediction](https://doi.org/10.62036/isd.2026.93) | Preprint | 2026 |
+| [Self-Supervised Multi-View 3D Gaze Target Estimation via Probabilistic Ray Marching](https://arxiv.org/abs/2609.07415) | arXiv | 2026 |
+| [Marker-free eye-gaze estimation using a single image and depth from defocus](https://arxiv.org/abs/2609.09610) | arXiv | 2026 |
 
 </details>
 
@@ -299,6 +304,26 @@ The model predicts human-target gaze relations directly from the scene, without 
 | [Diffusion-Refined VQA Annotations for Semi-Supervised Gaze Following](https://arxiv.org/abs/2406.02774) | ECCV | 2024 |
 | [Visual Saliency Guided Gaze Target Estimation with Limited Labels](https://ieeexplore.ieee.org/document/10582000) | FG | 2024 |
 | [A Plug-and-Play LLM Reasoning Module for Gaze Target Detection](https://openreview.net/forum?id=Akccupz2pP) | Visual Intelligence | 2025 |
+| [Predictions and goals modulate use of partner's gaze during joint action with humanoid robots](https://doi.org/10.1016/j.actpsy.2026.107838) | Preprint | 2026 |
+| [Thinking and looking produce distinct patterns of gaze aversion during a structured social interaction](https://doi.org/10.1111/bjop.70112) | Preprint | 2026 |
+| [Hidden In Plain Gaze: Gaze Representations as Privacy Controls for Utility and Re-identification Risk in XR](https://arxiv.org/abs/2609.04592) | arXiv | 2026 |
+| [Predicting infant gaze patterns during video viewing using spatiotemporal salience models](https://doi.org/10.1080/13506285.2026.2726800) | Preprint | 2026 |
+| [Automated detection of mutual gaze in mobile eye-tracking studies of multi-party interactions](https://doi.org/10.3389/fcomm.2026.1857066) | Preprint | 2026 |
+| [Dynamic gaze metrics in virtual reality: an AOI-based methodological framework applied to sexualized virtual characters](https://doi.org/10.3389/frvir.2026.1829181) | Preprint | 2026 |
+| [Same-sex attention and cooperation biases following digital social exclusion: Female users' responses to gender-coded virtual agents](https://doi.org/10.1016/j.actpsy.2026.107879) | Preprint | 2026 |
+| [Differential effects of free viewing and goal-directed search on visual attention: An eye-tracking study](https://doi.org/10.1371/journal.pone.0357289) | Preprint | 2026 |
+| [Measuring the dynamics of attentional capture in hand and eye movements with virtual reality](https://doi.org/10.3758/s13428-026-03177-9) | Preprint | 2026 |
+| [Preverbal infants' evaluation of sharing behaviors within a “taking turns” context is modulated by the perspectives they adopt](https://doi.org/10.3389/fdpys.2026.1904707) | Preprint | 2026 |
+| [Spatial attention shapes the pupillary light response](https://doi.org/10.5281/zenodo.22639801) | Preprint | 2026 |
+| [Behavioral and Physiological Responses to Sensory and Cognitive Demands in an Immersive Virtual Reality Shopping Task in Unimpaired Young Adults: Within-Subjects Experimental Study](https://doi.org/10.2196/84893) | Preprint | 2026 |
+| [INSPECT: Learning Robot View Selection from Assistant Use](https://arxiv.org/abs/2609.20615) | arXiv | 2026 |
+| [Civil: causal and intuitive visual imitation learning](https://arxiv.org/abs/2504.17959) | arXiv | 2026 |
+| [Better Situational Awareness in AR-HRC? A Comparative Study of Augmented Reality and Mobile Interfaces for Human-Robot Collaboration](https://arxiv.org/abs/2609.01461) | arXiv | 2026 |
+| [Reviewer #1 (Public review): Neural responses during natural vision are action-timed rather than locked to the onset of stable foveal input](https://doi.org/10.7554/elife.112506.1.sa3) | Preprint | 2026 |
+| [Author response: Neural responses during natural vision are action-timed rather than locked to the onset of stable foveal input](https://doi.org/10.7554/elife.112506.1.sa0) | Preprint | 2026 |
+| [Message framing and visual attention in sustainable meat reduction campaigns: An eye tracking analysis](https://doi.org/10.1016/j.actpsy.2026.107847) | Preprint | 2026 |
+| [Calibration-free retinal-anterior eye-tracker for high-speed, high-accuracy, and high-precision eye movement estimation during fixations, saccades, and smooth pursuit](https://doi.org/10.1038/s41598-026-70924-5) | Preprint | 2026 |
+| [Visual Representation of "Chinoiserie" in Western AI Image Models: A Case Study of Midjourney](https://doi.org/10.63313/ijsseh.9063) | Preprint | 2026 |
 
 </details>
 
@@ -456,6 +481,10 @@ A candidate human-object pair is provided first, and the model predicts the inte
 | Learning Self- and Cross-Triplet Context Clues for Human-Object Interaction Detection | TCSVT | 2024 | — |
 | [Diagnosing Human-object Interaction Detectors](https://arxiv.org/pdf/2308.08529.pdf) | IJCV | 2025 | [Code](https://github.com/neu-vi/Diag-HOI) |
 | Interaction Is Worth More Explanations: Improving Human–Object Interaction Representation With Propositional Knowledge | TCDS | 2025 | — |
+| [Interpretable Modeling of Driver Attention Shifts with a Vision–Language Model](https://arxiv.org/abs/2508.05852) | arXiv | 2026 | — |
+| [FAVE: Foveated Adaptive Visual Encoding for Efficient Fine-Grained Visual Understanding](https://arxiv.org/abs/2609.04392) | arXiv | 2026 | — |
+| [A Survey on Foundation Models for Personalized Federated Intelligence](https://arxiv.org/abs/2505.06907) | arXiv | 2026 | — |
+| [Human-like meaning maps from single-prompt VLM ratings of local scene meaning](https://doi.org/10.64898/2026.08.30.748100) | Preprint | 2026 | — |
 
 </details>
 
@@ -638,3 +667,28 @@ Replace the placeholders below with your real repository links:
 - `Reading List`: `./papers/`
 
 --- -->
+
+
+## 🆕 paper-tracker (uncategorized)
+
+| [Of eyes and hands: Assessing the evolutionarily stable strategy of human handedness by means of eye‐tracking](https://doi.org/10.1111/bjop.70110) | Preprint | 2026 |
+| [User Preferences and Effect of Highlighting Techniques for Target Selection in Virtual Reality](https://doi.org/10.11575/prism/51925) | Preprint | 2026 |
+| [Born wired: innate cortical connectivity plus local plasticity is enough to stand, walk and look](https://doi.org/10.21203/rs.3.rs-11070398/v1) | Preprint | 2026 |
+| [Tactile Search: Enhancing Targeting in 3D Space](https://arxiv.org/abs/2609.05867) | arXiv | 2026 |
+| [Congenital aphantasia: what we (think we) know, what we thought we knew but were mistaken about, and what we don't know](https://doi.org/10.1016/j.concog.2026.104120) | Preprint | 2026 |
+| [To What End? "Neurodata" Boundaries and Their Implications for Policy and Regulation](https://doi.org/10.65701/44lv1zerdb) | Preprint | 2026 |
+| [A Lightweight Context-Aware Detector for Small and Occluded Targets in Aerial Power-Line Inspection](https://doi.org/10.21203/rs.3.rs-9301249/v1) | Preprint | 2026 |
+| [Unified vision-centric pedestrian crossing action prediction via adaptive patch projection and proactive spatial rectification](https://arxiv.org/abs/2609.07420) | arXiv | 2026 |
+| [AI-augmented ACT-R modeling in real interfaces: automating visual perception, knowledge acquisition, and motor misexecution](https://doi.org/10.3389/fpsyg.2026.1913953) | Preprint | 2026 |
+| [Chimpanzees attribute agency to virtual animals, but not to self-propelled shapes](https://doi.org/10.1098/rspb.2026.1574) | Preprint | 2026 |
+| [Reviewer #3 (Public review): Prediction tendency, eye movements, and attention in a unified framework of neural speech tracking](https://doi.org/10.7554/elife.101262.3.sa1) | Preprint | 2026 |
+| [Reviewer #1 (Public review): Prediction tendency, eye movements, and attention in a unified framework of neural speech tracking](https://doi.org/10.7554/elife.101262.3.sa3) | Preprint | 2026 |
+| [Reviewer #2 (Public review): Prediction tendency, eye movements, and attention in a unified framework of neural speech tracking](https://doi.org/10.7554/elife.101262.3.sa2) | Preprint | 2026 |
+| [ML-Assisted Cognitive Characterization of Human Problem Solving Behaviors through Visuo-Spatial Game](https://doi.org/10.21203/rs.3.rs-8794593/v1) | Preprint | 2026 |
+| [Forced Yet Free: What Magicians' Forcing Reveals Beyond Intentional Binding](https://arxiv.org/abs/2609.27416) | arXiv | 2026 |
+| [Interpreting Neural Branch Predictors: An Attention-Based Approach for Explainable Branch Prediction](https://doi.org/10.64388/irev10i3-1723172) | Preprint | 2026 |
+| [Cross-Source Prediction of a Visual Load Index from Vehicle Kinematic Features: A Driver-Independent Validation Study](https://doi.org/10.3390/s26175521) | Preprint | 2026 |
+| [The objectivity of Australian judicial decisions](https://doi.org/10.14746/cl.2026.67.7) | Preprint | 2026 |
+| [Event-based Selective Attention for Multi-resolution Fast Region of Interest (ROI) Detection](https://arxiv.org/abs/2609.17134) | arXiv | 2026 |
+| [Affordances as Response-Dependent Properties: Beyond Dispositionalism and Relationalism](https://doi.org/10.1007/s11245-026-10464-9) | Preprint | 2026 |
+| [Temporal prediction captures retinal spiking responses across animal species](https://doi.org/10.1038/s41467-026-77399-y) | Preprint | 2026 |
