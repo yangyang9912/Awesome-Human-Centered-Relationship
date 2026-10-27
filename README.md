@@ -371,7 +371,7 @@ The model integrates person localization, target association, and HGT prediction
 <p align="center"><em>Representative HGT performance on GazeFollow and VAT.</em></p>
 
 <p align="center">
-  <img src="./readme_assets/gop_performance_table.svg" alt="Performance table for GOP methods on GOO-Synth and GOO-Real" width="50%">
+  <img src="./readme_assets/gop_performance_table.svg" alt="Performance table for GOP methods on GOO-Synth and GOO-Real" width="96%">
 </p>
 <p align="center"><em>Representative GOP performance on GOO-Synth and GOO-Real.</em></p>
 
