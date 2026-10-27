@@ -2,8 +2,8 @@
 
 # Human-Centered Relationship Understanding
 <p>
-  <strong>A curated, survey-driven GitHub project for unified human-centered relationship understanding</strong><br/>
-  Covering <code>Human-Gaze-Target (HGT) Recognition</code>, and <code>Human-Object Interaction (HOI) Detection</code>.
+  <strong>A curated, survey-driven project for human-centered relationship understanding</strong><br/>
+  Covering <code>Human-Gaze-Target (HGT) Recognition</code>, its object-level extension <code>Gaze Object Prediction (GOP)</code>, and <code>Human-Object Interaction (HOI) Detection</code>.
 </p>
 
 <p>
@@ -17,6 +17,8 @@
   <a href="#-overview">Overview</a> •
   <a href="#-benchmarks">Benchmarks</a> •
   <a href="#-taxonomy">Taxonomy</a> •
+  <a href="#-cross-task-connections-and-transfer-boundaries">Cross-Task</a> •
+  <a href="#-limitations-and-opportunities">Outlook</a> •
   <a href="#-roadmap">Roadmap</a>
 </p>
 
@@ -24,47 +26,62 @@
 
 ---
 
-> A unified reading hub for **gaze target grounding** and **interaction reasoning**,  from *where humans look* to *how humans act on objects*.
+> A unified reading hub for **attentional grounding** and **physical interaction reasoning**, from *where or what humans look at* to *how humans interact with objects*.
 
 ## 📬 Project Note
 
-This repository is designed to support paper reading, benchmark comparison, and future updates in unified human-object relationship understanding. Contact **jin91999@gmail.com** if any paper is missed!
+This repository supports paper reading, taxonomy navigation, benchmark comparison, and continuing updates for human-centered relationship understanding. Contact **jin91999@gmail.com** if any paper is missing.
 
 ## ✨ Overview
 
-Human-Object Relationship Understanding studies how humans attend to and interact with surrounding objects in visual scenes. This repository instead emphasizes a unified relational perspective and makes the landscape easier to browse, compare, and extend both HGT and HOI ultimately predict **structured human-centered relationships**:
+This repository examines two related but semantically distinct task families through a shared relational perspective:
 
-- **Human-Gaze-Target (HGT) Recognition**: predicting where or what a person is looking at
-- **Human-Object Interaction (HOI) Detection**: predicting how a person physically interacts with an object
+- **HGT recognition** models attentional grounding by predicting where a person is looking. **GOP** extends HGT recognition to the semantic object instance being attended to.
+- **HOI detection** models physical or functional interactions by localizing a human, an object, and their interaction predicate.
 
-<p align="center">
-  <img src="./readme_assets/overview_timeline.png" alt="Chronological overview of representative methods spanning HGT recognition and HOI detection" width="100%">
-</p>
-<p align="center"><em>Chronological overview of representative methods across HGT recognition and HOI detection.</em></p>
-
-### 🧠 Core Formulation
-
-A unified way to describe the problem is: `f : I → {<h, r, t>}`
-
-Where: `I` = input image or video; `h` = human instance; `t` = target entity; `r` = relation predicate. 
-
-Under this view:
-
-- **HGT** can be seen as a special case with a fixed attentional relation such as **gazing at**
-- **HOI** uses richer predicates such as **hold**, **ride**, **point to**, or **touch**
+The shared view supports comparison of grounding, association, contextual reasoning, and structured decoding, while preserving the tasks' different inputs, targets, relation semantics, supervision, and evaluation protocols.
 
 <p align="center">
-  <img src="./readme_assets/unified_pipeline.png" alt="Comparison of gaze relation modeling, interaction relation modeling, and unified human-object relationship modeling" width="96%">
+  <img src="./readme_assets/overview_timeline.svg" alt="Chronological overview of representative methods spanning HGT recognition and HOI detection" width="100%">
 </p>
-<p align="center"><em>From gaze to interaction: task evolution and unified human-object relationship modeling pipeline.</em></p>
+<p align="center"><em>Chronological overview of representative methods across HGT recognition and HOI detection. Boxed methods denote related cross-task studies.</em></p>
+
+<p align="center">
+  <img src="./readme_assets/performance.svg" alt="Reported performance development for HGT recognition and HOI detection" width="96%">
+</p>
+<p align="center"><em>Reported performance development under the standard configuration of each cited publication: AUC on GazeFollow for HGT and Default Full mAP on HICO-Det for HOI. These curves summarize literature trends rather than controlled comparisons across model configurations.</em></p>
+
+### 🧠 Unified Relational Formulation
+
+For an image `I`, the valid relation set is represented at the output level as:
+
+`R(I) ⊆ H(I) × L × T(I)`
+
+where `H(I)` and `T(I)` are task-specific human and target representations, and `L` is the relation-label space. The task interfaces remain distinct:
+
+- **Head-conditioned HGT** infers an attended point, heatmap, out-of-frame state, or object from an image and an explicitly specified head or face.
+- **Proposal-conditioned HOI** predicts interaction predicates for human-object candidates established by a detector.
+- **Head-free HGT** jointly discovers the relevant person and attentional target from the scene, sometimes using a semantic or visual prompt to specify the person.
+- **Proposal-free HOI** jointly decodes human-object pairs and interaction predicates without an independently established candidate set.
+
+For video, a relation may additionally be indexed by a time point or interval. This formulation is a task-level abstraction of image- and video-based dyadic relations; it does not imply shared target or label spaces and does not directly cover higher-order relations such as shared attention or group interaction.
+
+<p align="center">
+  <img src="./readme_assets/unified_pipeline.svg" alt="Comparison of entity-conditioned and joint entity–relation interfaces for HGT recognition and HOI detection" width="96%">
+</p>
+<p align="center"><em>Entity-conditioned and joint entity–relation interfaces for HGT recognition and HOI detection.</em></p>
+
+### Survey Scope
+
+HGT recognition and HOI detection are treated as representative focal tasks rather than an exhaustive taxonomy of human-centered relations. Visual relationship detection and scene-graph generation provide broader structured-relation frameworks; joint attention, co-attention, social interaction and relation reasoning extend the setting to interpersonal and group dependencies; embodied human-agent interaction additionally requires closed-loop action and environmental feedback.
 
 ---
 
 ## 📚 Benchmarks
 
-> The tables below are expanded from the dataset summary you provided. I kept the original **Highlights** column, and added **venue**, **paper title**, **paper link**, **dataset link**, and the main dataset attributes from your table.
+> The tables below separate gaze-target localization, object-level gaze grounding, HOI detection, and related relational resources. Their annotation and evaluation settings are task-specific and should not be treated as interchangeable.
 
-## Gaze Object Prediction
+## Gaze Object Prediction (Object-Level HGT Recognition)
 
 | Dataset | Paper | Venue | Year | Dataset Link | Highlights |
 |---|---|---|---:|---|---|
@@ -87,6 +104,7 @@ Under this view:
 | **GFIE** | [GFIE: A Dataset and Baseline for Gaze-Following](https://openaccess.thecvf.com/content/CVPR2023/html/Hu_GFIE_A_Dataset_and_Baseline_for_Gaze-Following_From_2D_to_CVPR_2023_paper.html) | CVPR | 2023 | [Dataset](https://sites.google.com/view/gfie) | RGB-D benchmark for 2D and 3D gaze following |
 | **ChildPlay** | [ChildPlay: A New Benchmark for Children's Gaze](https://openaccess.thecvf.com/content/ICCV2023/papers/Tafasca_ChildPlay_A_New_Benchmark_for_Understanding_Childrens_Gaze_Behaviour_ICCV_2023_paper.pdf) | ICCV | 2023 | [Dataset](https://github.com/idiap/geomgaze) | Natural child-centered scenes with rich social gaze behavior |
 | **VsGaze** | [MTGS: Multi-Person Temporal Gaze Following](https://proceedings.neurips.cc/paper_files/paper/2024/hash/1caf09c9f4e6b0150b06a07e77f2710c-Abstract-Conference.html) | NeurIPS | 2024 | [Dataset](https://github.com/idiap/MTGS) | Unified benchmark for multi-person and social gaze |
+| **Gaze-Co** | [Gaze Target Estimation Anywhere with Concepts](https://openaccess.thecvf.com/content/CVPR2026/papers/Cao_Gaze_Target_Estimation_Anywhere_with_Concepts_CVPR_2026_paper.pdf) | CVPR | 2026 | [Dataset](https://github.com/IrohXu/GazeAnywhere) | 120K prompt-annotated image-concept pairs for promptable HGT recognition |
 | **VideoCoAtt** | [Inferring Shared Attention in Social Scene Videos](https://openaccess.thecvf.com/content_cvpr_2018/html/Fan_Inferring_Shared_Attention_CVPR_2018_paper.html) | CVPR | 2018 | [Dataset](http://www.stat.ucla.edu/~lifengfan/shared_attention) | Shared-attention benchmark for multi-person social scenes |
 | **UCO-LAEO** | [LAEO-Net: Revisiting People Looking at Each Other](https://openaccess.thecvf.com/content_CVPR_2019/papers/Marin-Jimenez_LAEO-Net_Revisiting_People_Looking_at_Each_Other_in_Videos_CVPR_2019_paper.pdf) | CVPR | 2019 | [Dataset](https://github.com/AVAuco/ucolaeodb) | Benchmark for mutual gaze in videos |
 | **AVA-LAEO** | [LAEO-Net: Revisiting People Looking at Each Other](https://openaccess.thecvf.com/content_CVPR_2019/papers/Marin-Jimenez_LAEO-Net_Revisiting_People_Looking_at_Each_Other_in_Videos_CVPR_2019_paper.pdf) | CVPR | 2019 | [Dataset](https://github.com/AVAuco/laeonetplus) | Larger and more challenging mutual-gaze benchmark |
@@ -125,9 +143,30 @@ Under this view:
 
 ## 🗂 Taxonomy
 
+The survey uses the relation-prediction interface—not the presence of a particular component such as a Transformer, vision-language model, or generative module—as its primary classification criterion:
+
+- **Entity-Conditioned Relation Modeling** establishes task-specific entities before relation prediction. It includes **Head-Conditioned HGT Modeling** and **Proposal-Conditioned HOI Modeling**.
+- **Joint Entity–Relation Modeling** integrates entity discovery, association, and relation prediction at the scene level. It includes **Head-Free HGT Modeling** and **Proposal-Free HOI Modeling**.
+
+Vision-language and generative components are semantic or training strategies and do not by themselves determine the inference interface.
+
+<p align="center">
+  <img src="./readme_assets/entity_conditioned_methods.svg" alt="Representative architectural paradigms for entity-conditioned relation modeling" width="96%">
+</p>
+<p align="center"><em>Representative methods for entity-conditioned relation modeling.</em></p>
+
+<p align="center">
+  <img src="./readme_assets/joint_entity_relation_methods.svg" alt="Representative architectural paradigms for joint entity–relation modeling" width="96%">
+</p>
+<p align="center"><em>Representative methods for joint entity–relation modeling.</em></p>
+
 ## 1. Human-Gaze-Target Recognition
 
-### A. Gaze Object Prediction (GOP)
+### A. Head-Conditioned HGT Modeling
+
+The attended target is inferred for a person whose head or face location is explicitly specified before relation prediction.
+
+#### Object-Level Gaze Grounding (GOP)
 
 <!-- <details>
 <summary><strong>Datasets and Benchmarks</strong> (2 papers)</summary>
@@ -139,10 +178,10 @@ Under this view:
 
 </details> -->
 
-GOP extends gaze target prediction from **where someone looks** to **what object is being attended to**.
+GOP extends gaze-target localization from **where someone looks** to **which semantic object instance is being attended to**.
 
 <details>
-<summary><strong>Location-required GOP</strong> (4 papers)</summary>
+<summary><strong>Object-level gaze grounding (head-conditioned)</strong> (5 papers)</summary>
 
 | Paper | Venue | Year |
 |---|---|---:|
@@ -150,24 +189,13 @@ GOP extends gaze target prediction from **where someone looks** to **what object
 | [Towards Fusing Gaze Estimation and Object Prediction: What are You Looking at?](https://doi.org/10.2139/ssrn.4939643) | EAAI | 2024 |
 | [TransGOP: Transformer-Based Gaze Object Prediction](https://ojs.aaai.org/index.php/AAAI/article/view/28883) | AAAI | 2024 |
 | [VL-HTR: Learning Human–Target Representation From Vision–Language Model](https://doi.org/10.1109/tcyb.2026.3659335) | TCYB | 2026 |
-
-</details>
-
-<details>
-<summary><strong>Location-free GOP</strong> (3 papers)</summary>
-
-| Paper | Venue | Year |
-|---|---|---:|
-| [Boosting Gaze Object Prediction via Pixel-level Supervision from Vision Foundation Model](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/08783.pdf) | ECCV | 2024 |
-| [GaTector+: A Unified Head-free Framework for Gaze Object and Gaze Following Prediction](https://doi.org/10.48550/arXiv.2510.25301) | arXiv | 2025 |
-| [TransGOP-R: Transformer-Based Real-World Gaze Object Prediction](https://ieeexplore.ieee.org/document/11275879) | TMM | 2025 |
+| [Open-Vocabulary Gaze Object Prediction: Benchmark and Method](https://arxiv.org/abs/2607.18827) | ACM MM | 2026 |
 
 </details>
 
 ---
 
-### B. Location-required HGT Detection
-The target person is given in advance, usually through a head or face bounding box.
+#### Gaze-Target Localization Method Families
 
 <details>
 <summary><strong>Fusion-based</strong> (7 papers)</summary>
@@ -197,7 +225,7 @@ The target person is given in advance, usually through a head or face bounding b
 </details>
 
 <details>
-<summary><strong>Multimodal-based</strong> (10 papers)</summary>
+<summary><strong>Multimodal-based</strong> (11 papers)</summary>
 
 | Paper | Venue | Year |
 |---|---|---:|
@@ -211,11 +239,12 @@ The target person is given in advance, usually through a head or face bounding b
 | [Gaze Target Detection by Merging Human Attention and Activity Cues](https://doi.org/10.1609/aaai.v38i7.28480) | AAAI | 2024 |
 | [Multi-Modal Gaze Following in Conversational Scenarios](https://ieeexplore.ieee.org/document/10484112) | WACV | 2024 |
 | [Toward Semantic Gaze Target Detection](https://openreview.net/forum?id=BAmAFraxvf) | NeurIPS | 2024 |
+| [TextGaze: Prompting Gaze Target Estimation with Textual Scene Cues](https://arxiv.org/abs/2607.10130) | IJCAI | 2026 |
 
 </details>
 
 <details>
-<summary><strong>Geometry-aware</strong> (7 papers)</summary>
+<summary><strong>Geometry-aware</strong> (8 papers)</summary>
 
 | Paper | Venue | Year |
 |---|---|---:|
@@ -226,6 +255,7 @@ The target person is given in advance, usually through a head or face bounding b
 | [GFIE: A Dataset and Baseline for Gaze-Following from 2D to 3D in Indoor Environments](https://ieeexplore.ieee.org/document/10204982) | CVPR | 2023 |
 | [Where are they looking in the 3D space?](https://doi.org/10.1109/CVPRW59228.2023.00268) | CVPRW | 2023 |
 | [GazeTarget360: Towards Gaze Target Estimation in 360-Degree for Robot Perception](https://doi.org/10.1109/IROS60139.2025.11246230) | IROS | 2025 |
+| [Multi-scale Object-Aware Gaze Estimation via Geometric Reasoning](https://arxiv.org/abs/2606.29334) | ECCV | 2026 |
 
 </details>
 
@@ -256,8 +286,19 @@ The target person is given in advance, usually through a head or face bounding b
 
 ---
 
-### C. Location-free HGT Detection
-The model predicts human-target gaze relations directly from the scene, without explicit head priors.
+### B. Head-Free HGT Modeling
+The model integrates person localization, target association, and HGT prediction without requiring an externally specified head box. Promptable variants may still identify the person through semantic or visual queries.
+
+<details>
+<summary><strong>Object-level gaze grounding (head-free)</strong> (3 papers)</summary>
+
+| Paper | Venue | Year |
+|---|---|---:|
+| [Boosting Gaze Object Prediction via Pixel-level Supervision from Vision Foundation Model](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/08783.pdf) | ECCV | 2024 |
+| [GaTector+: A Unified Head-free Framework for Gaze Object and Gaze Following Prediction](https://doi.org/10.48550/arXiv.2510.25301) | arXiv | 2025 |
+| [TransGOP-R: Transformer-Based Real-World Gaze Object Prediction](https://ieeexplore.ieee.org/document/11275879) | TMM | 2025 |
+
+</details>
 
 <details>
 <summary><strong>Query-based</strong> (6 papers)</summary>
@@ -274,7 +315,7 @@ The model predicts human-target gaze relations directly from the scene, without 
 </details>
 
 <details>
-<summary><strong>Foundation Model-based</strong> (4 papers)</summary>
+<summary><strong>Foundation model-based</strong> (5 papers)</summary>
 
 | Paper | Venue | Year |
 |---|---|---:|
@@ -282,12 +323,13 @@ The model predicts human-target gaze relations directly from the scene, without 
 | [GazeLLM: a plug-and-play zero-shot LLM reasoning framework for boosting gaze target detection](https://link.springer.com/article/10.1007/s44267-025-00101-1) | Visual Intelligence | 2025 |
 | [GazeVLM: A Vision-Language Model for Multi-Task Gaze Understanding](https://arxiv.org/abs/2511.06348) | arXiv | 2025 |
 | [VL4Gaze: Unleashing Vision-Language Models for Gaze Following](https://doi.org/10.48550/arXiv.2512.20735) | arXiv | 2026 |
+| [Gaze Target Estimation Anywhere with Concepts](https://openaccess.thecvf.com/content/CVPR2026/papers/Cao_Gaze_Target_Estimation_Anywhere_with_Concepts_CVPR_2026_paper.pdf) | CVPR | 2026 |
 
 </details>
 
 ---
 
-### D. Auxiliary Methods and Applications
+### C. Auxiliary Methods and Applications
 
 <details>
 <summary><strong>Training Efficiency, Robustness, and Annotation</strong> (5 papers)</summary>
@@ -321,27 +363,32 @@ The model predicts human-target gaze relations directly from the scene, without 
 
 ---
 
-### E. Performance Snapshots for HGT
+### D. Performance and Efficiency Snapshots for HGT
 
 <p align="center">
-  <img src="./readme_assets/hgt_performance_table.png" alt="Performance table for HGT recognition methods on GazeFollow and VAT" width="96%">
+  <img src="./readme_assets/hgt_performance_table.svg" alt="Performance table for HGT recognition methods on GazeFollow and VAT" width="96%">
 </p>
 <p align="center"><em>Representative HGT performance on GazeFollow and VAT.</em></p>
 
 <p align="center">
-  <img src="./readme_assets/gop_performance_table.png" alt="Performance table for GOP methods on GOO-Synth and GOO-Real" width="50%">
+  <img src="./readme_assets/gop_performance_table.svg" alt="Performance table for GOP methods on GOO-Synth and GOO-Real" width="50%">
 </p>
 <p align="center"><em>Representative GOP performance on GOO-Synth and GOO-Real.</em></p>
+
+<p align="center">
+  <img src="./readme_assets/hgt_efficiency_table.svg" alt="Computational efficiency of representative HGT recognition and GOP methods" width="96%">
+</p>
+<p align="center"><em>Reported and supplemented efficiency statistics for representative HGT and GOP methods. An asterisk denotes measurements reproduced with released code on a single NVIDIA RTX 4090 GPU.</em></p>
 
 ---
 
 ## 2. Human-Object Interaction Detection
 
-### A. Location-required HOI Detection
-A candidate human-object pair is provided first, and the model predicts the interaction label.
+### A. Proposal-Conditioned HOI Modeling
+Human and object candidates are established before relation prediction, and the model predicts interaction labels for the resulting pairs.
 
 <details>
-<summary><strong>Proposal / pairwise feature fusion</strong> (62 papers)</summary>
+<summary><strong>Proposal / pairwise feature fusion</strong> (64 papers)</summary>
 
 | Paper | Venue | Year | Code |
 |---|---|---:|---|
@@ -443,7 +490,7 @@ A candidate human-object pair is provided first, and the model predicts the inte
 </details>
 
 <details>
-<summary><strong>Vision-language modeling</strong> (9 papers)</summary>
+<summary><strong>Vision-language modeling</strong> (14 papers)</summary>
 
 | Paper | Venue | Year | Code |
 |---|---|---:|---|
@@ -451,18 +498,23 @@ A candidate human-object pair is provided first, and the model predicts the inte
 | [Diagnosing Rarity in Human-Object Interaction Detection](https://arxiv.org/pdf/2006.05728.pdf) | CVPRW | 2020 | — |
 | [Novel Human-Object Interaction Detection via Adversarial Domain Generalization](https://arxiv.org/pdf/2005.11406.pdf) | arXiv | 2020 | — |
 | [Exploiting CLIP for Zero-shot HOI Detection Requires Knowledge Distillation at Multiple Levels](https://arxiv.org/pdf/2309.05069.pdf) | WACV | 2023 | [Code](https://github.com/bobwan1995/Zeroshot-HOI-with-CLIP) |
-| [Exploiting CLIP for Zero-shot HOI Detection Requires Knowledge Distillation at Multiple Levels](https://arxiv.org/pdf/2309.05069.pdf) | arXiv | 2023 | [Code](https://github.com/bobwan1995/Zeroshot-HOI-with-CLIP) |
+| [CLIP4HOI: Towards Adapting CLIP for Practical Zero-Shot HOI Detection](https://openreview.net/pdf?id=nqIIWnwe73) | NeurIPS | 2023 | — |
 | [Exploring Conditional Multi-Modal Prompts for Zero-shot HOI Detection](https://arxiv.org/pdf/2408.02484) | ECCV | 2024 | [Code](https://github.com/ltttpku/CMMP) |
 | Learning Self- and Cross-Triplet Context Clues for Human-Object Interaction Detection | TCSVT | 2024 | — |
+| [CL-HOI: Cross-Level Human-Object Interaction Distillation from Multimodal Large Language Models](https://arxiv.org/abs/2410.15657) | KBS | 2025 | — |
+| [HOLa: Zero-Shot HOI Detection with Low-Rank Decomposed VLM Feature Adaptation](https://arxiv.org/abs/2507.15542) | ICCV | 2025 | [Code](https://github.com/ChelsieLei/HOLa) |
+| [HORP: Human-Object Relation Priors Guided HOI Detection](https://openaccess.thecvf.com/content/CVPR2025/papers/Geng_HORP_Human-Object_Relation_Priors_Guided_HOI_Detection_CVPR_2025_paper.pdf) | CVPR | 2025 | — |
 | [Diagnosing Human-object Interaction Detectors](https://arxiv.org/pdf/2308.08529.pdf) | IJCV | 2025 | [Code](https://github.com/neu-vi/Diag-HOI) |
 | Interaction Is Worth More Explanations: Improving Human–Object Interaction Representation With Propositional Knowledge | TCDS | 2025 | — |
+| [Mining Instance-Centric Vision-Language Contexts for Human-Object Interaction Detection](https://arxiv.org/abs/2604.02071) | CVPR | 2026 | — |
+| [LINK: Learning Instance-level Knowledge from Vision-Language Models for Human-Object Interaction Detection](https://openreview.net/pdf?id=CTdweIFocz) | ICLR | 2026 | — |
 
 </details>
 
 ---
 
-### B. Location-free HOI Detection
-The model predicts complete `<human, interaction, object>` triplets directly from the image.
+### B. Proposal-Free HOI Modeling
+The model jointly decodes complete `<human, interaction, object>` triplets without an independently established candidate-pair set.
 
 <details>
 <summary><strong>Dense triplet prediction</strong> (16 papers)</summary>
@@ -489,7 +541,7 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 </details>
 
 <details>
-<summary><strong>Query-based</strong> (30 papers)</summary>
+<summary><strong>Query-based</strong> (33 papers)</summary>
 
 | Paper | Venue | Year | Code |
 |---|---|---:|---|
@@ -519,16 +571,20 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 | Zero-Shot Human–Object Interaction Detection via Similarity Propagation | TNNLS | 2024 | — |
 | [FGAHOI: Fine-Grained Anchors for Human-Object Interaction Detection](https://arxiv.org/pdf/2301.04019.pdf) | TPAMI | 2024 | [Code](https://github.com/xiaomabufei/FGAHOI) |
 | [No More Sibling Rivalry: Debiasing Human-Object Interaction Detection](https://arxiv.org/pdf/2509.00760) | ICCV | 2025 | [Code](https://github.com/YangBin55/No-More-Sibling-Rivalry) |
+| [HOIMamba: Efficient Mamba-based Disentangled Progressive Learning for HOI Detection](https://ojs.aaai.org/index.php/AAAI/article/download/32972/35127) | AAAI | 2025 | — |
 | [Learning Human-Object Interaction as Groups](https://arxiv.org/pdf/2510.18357) | NeurIPS | 2025 | — |
 | Interaction-Aware Transformer Network for Human-Object Interaction Detection | TCYB | 2025 | — |
 | Synergistic Prompting Learning for Human-Object Interaction Detection | TIP | 2025 | — |
 | [DQEN: Dual Query Enhancement Network for DETR-based HOI Detection](https://arxiv.org/pdf/2508.18896) | arXiv | 2025 | [Code](https://github.com/lzzhhh1019/DQEN) |
 | [QueryCraft: Transformer-Guided Query Initialization for Enhanced Human-Object Interaction Detection](https://arxiv.org/pdf/2508.08590) | AAAI | 2026 | [Code](https://github.com/YuxiaoWang-AI/QueryCraft) |
+| [SL-HOI: Streamlined Open-Vocabulary Human-Object Interaction Detection](https://arxiv.org/abs/2603.27500) | CVPR | 2026 | [Code](https://github.com/MPI-Lab/SL-HOI) |
 
 </details>
 
 <details>
-<summary><strong>Generative modeling</strong> (4 papers)</summary>
+<summary><strong>Generative-assisted extensions</strong> (4 papers)</summary>
+
+Generative components may provide relation-aware features, data augmentation, or consistency objectives; they do not by themselves define whether an HOI detector is proposal-conditioned or proposal-free.
 
 | Paper | Venue | Year | Code |
 |---|---|---:|---|
@@ -540,7 +596,7 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 </details>
 
 <details>
-<summary><strong>Vision-language modeling</strong> (22 papers)</summary>
+<summary><strong>Vision-language modeling</strong> (19 papers)</summary>
 
 | Paper | Venue | Year | Code |
 |---|---|---:|---|
@@ -554,7 +610,6 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 | [RLIPv2: Fast Scaling of Relational Language-Image Pre-training](https://arxiv.org/pdf/2308.09351.pdf) | ICCV | 2023 | [Code](https://github.com/JacobYuan7/RLIPv2) |
 | [Unified Visual Relationship Detection with Vision and Language Models](https://arxiv.org/pdf/2303.08998.pdf) | ICCV | 2023 | — |
 | [Weakly-supervised HOI Detection via Prior-guided Bi-level Representation Learning](https://arxiv.org/pdf/2303.01313.pdf) | ICLR | 2023 | [Code](https://github.com/bobwan1995/Weakly-HOI) |
-| [CLIP4HOI: Adapting CLIP for Open-Vocabulary Human-Object Interaction Detection](https://openreview.net/pdf?id=nqIIWnwe73) | NeurIPS | 2023 | — |
 | [Detecting Any Human-Object Interaction Relationship: Universal HOI Detector with Spatial Prompt Learning on Foundation Models](https://arxiv.org/pdf/2311.03799.pdf) | NeurIPS | 2023 | [Code](https://github.com/Caoyichao/UniHOI) |
 | [Dual-Prior Augmented Decoding Network for Long Tail Distribution in HOI Detection](https://ojs.aaai.org/index.php/AAAI/article/view/27949) | AAAI | 2024 | [Code](https://github.com/PRIS-CV/DPADN) |
 | [Exploring the Potential of Large Foundation Models for Open-Vocabulary HOI Detection](https://arxiv.org/pdf/2404.06194.pdf) | CVPR | 2024 | [Code](https://github.com/ltttpku/CMD-SE-release) |
@@ -562,9 +617,7 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 | [Towards Zero-shot Human-Object Interaction Detection via Vision-Language Integration](https://arxiv.org/pdf/2403.07246.pdf) | NN | 2024 | — |
 | [EZ-HOI: VLM Adaptation via Guided Prompt Learning for Zero-Shot HOI Detection](https://arxiv.org/pdf/2410.23904) | NeurIPS | 2024 | [Code](https://github.com/ChelsieLei/EZ-HOI) |
 | [Bilateral Collaboration with Large Vision-Language Models for Open Vocabulary Human-Object Interaction Detection](https://arxiv.org/pdf/2507.06510) | ICCV | 2025 | [Code](https://github.com/MPI-Lab/BC-HOI) |
-| [HOLa: Zero-Shot HOI Detection with Low-Rank Decomposed VLM Feature Adaptation](https://arxiv.org/pdf/2507.15542) | ICCV | 2025 | [Code](https://github.com/ChelsieLei/HOLa) |
 | [Open-Vocabulary HOI Detection with Interaction-aware Prompt and Concept Calibration](https://arxiv.org/pdf/2508.03207) | ICCV | 2025 | [Code](https://github.com/ltttpku/INP-CC) |
-| [CL-HOI: Cross-Level Human-Object Interaction Distillation from Vision Large Language Models](https://arxiv.org/pdf/2410.15657) | KBS | 2025 | — |
 | [Dynamic Scene Understanding from Vision-Language Representations](https://arxiv.org/pdf/2501.11653) | arXiv | 2025 | [Code](https://tau-vailab.github.io/Dynamic-Scene-Understanding/) |
 
 </details>
@@ -572,12 +625,45 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 
 ---
 
-### C. Performance Snapshot for HOI
+### C. Performance and Efficiency Snapshots for HOI
 
 <p align="center">
-  <img src="./readme_assets/hoi_performance_table_full.png" alt="Representative HOI detection results on HICO-Det and V-COCO" width="96%">
+  <img src="./readme_assets/hoi_performance_table_full.svg" alt="Representative HOI detection results on HICO-Det and V-COCO" width="96%">
 </p>
 <p align="center"><em>Representative HOI detection performance on HICO-Det and V-COCO.</em></p>
+
+<p align="center">
+  <img src="./readme_assets/hoi_efficiency_table.svg" alt="Computational efficiency of representative HOI detection methods" width="96%">
+</p>
+<p align="center"><em>Reported and supplemented efficiency statistics for representative HOI methods. An asterisk denotes measurements reproduced with released code on a single NVIDIA RTX 4090 GPU.</em></p>
+
+> Benchmark values are reproduced from the cited publications. Results obtained with different backbones, pretraining sources, input modalities, or evaluation settings should not be interpreted as controlled accuracy–efficiency comparisons.
+
+---
+
+## 🔗 Cross-Task Connections and Transfer Boundaries
+
+A joint attentional–interaction view is particularly informative for three questions:
+
+1. **Ambiguous human–target association:** gaze can narrow action-relevant objects, while action context and object affordances can constrain plausible attentional targets.
+2. **Temporal attention–action transitions:** attention may precede interaction, but gaze is not deterministic evidence of action and interaction may occur while a person looks elsewhere.
+3. **Scene-level relation decoding:** both tasks must ground and associate people with relevant targets when heads or human-object pairs are not prescribed.
+
+GOP provides the clearest object-level interface between the task families because it converts an attended location into a semantic object instance. Scene encoders, spatial context, object representations, grounding, and association mechanisms are plausible component-level transfer points. Task-specific outputs, predicates, supervision, losses, matching constraints, and evaluation protocols should remain distinct.
+
+For method selection, entity-conditioned approaches provide traceable pair-level inference when reliable heads or proposals are available. Joint entity–relation approaches support global association when the relevant people or pairs are not prescribed, but introduce more complex matching, supervision, and error attribution. Cross-task sharing is most defensible when annotations align person/object instances or temporal attention–action cues; otherwise, transfer should be evaluated at the representation or association level rather than across complete prediction pipelines.
+
+## 🔭 Limitations and Opportunities
+
+<p align="center">
+  <img src="./readme_assets/limitations_opportunities.svg" alt="Limitations and future opportunities for HGT recognition and HOI detection" width="82%">
+</p>
+<p align="center"><em>Current limitations and corresponding opportunities in task-aware relation modeling, aligned benchmarks, and downstream-oriented evaluation.</em></p>
+
+- **Fragmented task formulations → shared but task-aware relation modeling:** evaluate shared representations under aligned annotations while retaining task-specific decoders and objectives.
+- **Insufficient and misaligned data → unified, multi-level benchmarks:** align gaze targets, object grounding, HOI triplets, temporal cues, and social relations where appropriate.
+- **Limited downstream validity → task- and deployment-oriented evaluation:** complement recognition metrics with robustness, task success, latency, memory use, and auxiliary-module cost under documented settings.
+- **Dyadic scope → higher-order reasoning:** extend to joint attention, social interaction, social relation reasoning, and embodied human-agent interaction through graph- or set-level representations rather than forcing them into the dyadic core taxonomy.
 
 ---
 
@@ -586,12 +672,14 @@ The model predicts complete `<human, interaction, object>` triplets directly fro
 This repository is evolving from a polished survey companion into a longer-term research resource.  
 The current version already includes the following core components:
 
-- [x] Build a unified view of HGT, GOP, and HOI
-- [x] Organize a clean taxonomy of representative methods
+- [x] Define HGT recognition (including GOP) and HOI detection as related but semantically distinct task families
+- [x] Organize methods by entity-conditioned and joint entity–relation interfaces
 - [x] Summarize key datasets and evaluation protocols
 - [x] Add a continuously updated paper list
 - [x] Add curated reading paths for beginners
 - [x] Add benchmark tables and performance tracking
+- [x] Add parameter, FLOP, and latency summaries for representative methods
+- [x] Clarify cross-task transfer conditions, limitations, and adjacent research areas
 - [x] Add open-source implementations and project links
 - [x] Add timeline-style navigation and visual summaries
 
